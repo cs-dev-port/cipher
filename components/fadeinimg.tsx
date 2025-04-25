@@ -9,10 +9,11 @@ export default function FadeInImage() {
   useEffect(() => {
     if (!imgRef.current) return;
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     animate(
       imgRef.current,
       {
-        opacity: [0, 5, 1],
+        opacity: [0, 5],
         transform: ["translateY(20px)", "translateY(0)"],
       },
       {
