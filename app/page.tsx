@@ -1,8 +1,5 @@
 "use client";
 
-import SplitText from "@/components/splittext";
-import FadeInImage from "@/components/fadeinimg";
-import { ArrowDownToDot } from "lucide-react";
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
