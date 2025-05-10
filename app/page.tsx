@@ -5,6 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 import { caesarCipher } from "@/lib/cipher";
 import { useEffect } from "react";
+import Navbar from "@/components/ui/navigation-menu";
 import Hero from "@/components/hero";
 
 export default function Home() {
@@ -21,6 +22,7 @@ export default function Home() {
 
   return (
     <>
+      <Navbar />
       {/* Hero Section */}
       <Hero />
       {/* Section 2: Below the fold (also full screen) */}
