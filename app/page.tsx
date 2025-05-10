@@ -7,6 +7,8 @@ import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 import { caesarCipher } from "@/lib/cipher";
+import { useEffect } from "react";
+import Hero from "@/components/hero";
 
 export default function Home() {
   const [plainText, setPlainText] = useState("");
@@ -15,24 +17,15 @@ export default function Home() {
   const increment = () => setValue((prev) => prev + 1);
   const decrement = () => setValue((prev) => prev - 1);
 
+  useEffect(() => {
+    setCipherText(caesarCipher(plainText, value));
+  }, [plainText, value]);
+  // Update cipherText whenever plainText or value changes
+
   return (
     <>
-      {/* Section 1: Hero (full screen) */}
-      <div className="h-screen grid grid-rows-[20px_1fr_20px] items-center justify-items-center p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-        <main className="flex flex-col gap-[32px] row-start-2 items-center">
-          <SplitText />
-          <FadeInImage />
-          <div className="text-center">
-            <p className="fade-in">scroll</p>
-            <br />
-            <div className="inline-block">
-              <ArrowDownToDot className="animate-bounce" />
-            </div>
-          </div>
-        </main>
-        <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center"></footer>
-      </div>
-
+      {/* Hero Section */}
+      <Hero />
       {/* Section 2: Below the fold (also full screen) */}
       <div className="h-screen px-6 py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 items-center justify-center">
         <Card>
@@ -45,8 +38,7 @@ export default function Home() {
                 setPlainText(input);
                 setCipherText(caesarCipher(input, value));
               }}
-              placeholder="Type your message and hit enter."
-              className="border p-2 w-full mb-4"
+              placeholder="Type your message here."
             />
           </CardHeader>
         </Card>
@@ -64,10 +56,13 @@ export default function Home() {
               </button>
               <input
                 type="number"
+                step="1"
                 value={value}
                 onChange={(e) => {
-                  const num = e.target.value;
-                  setValue(Number(num));
+                  const num = Number(e.target.value);
+                  if (Number.isInteger(num)) {
+                    setValue(num);
+                  }
                 }}
                 className="border rounded px-2 py-1 text-center w-16 appearance-none [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                 placeholder="Enter a number"
