@@ -7,6 +7,7 @@ import { caesarCipher } from "@/lib/cipher";
 import { useEffect } from "react";
 import Navbar from "@/components/ui/navigation-menu";
 import Hero from "@/components/hero";
+import Footer from "@/components/footer";
 
 export default function Home() {
   const [plainText, setPlainText] = useState("");
@@ -87,6 +88,8 @@ export default function Home() {
           </CardHeader>
         </Card>
       </div>
+      {/* Footer */}
+      <Footer />
     </>
   );
 }
