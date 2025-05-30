@@ -9,27 +9,27 @@ export default function Navbar() {
   return (
     <nav className="shadow-md px-4 py-10 px-10 flex justify-between items-center">
       <div className="text-xl font-bold">
-        <Link href="/">YourLogo</Link>
+        <Link href="/">My Site</Link>
       </div>
 
       {/* Desktop Menu */}
       <div className="hidden md:flex gap-6">
         <Link
-          href="#"
+          href="/"
+          className="relative hover: after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 hover:after:w-full"
+        >
+          Home
+        </Link>
+
+        <Link
+          href="/about"
           className="relative hover: after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 hover:after:w-full"
         >
           About
         </Link>
 
         <Link
-          href="#"
-          className="relative hover: after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 hover:after:w-full"
-        >
-          Services
-        </Link>
-
-        <Link
-          href="#"
+          href="https://github.com/cs-dev-port"
           className="relative hover: after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 hover:after:w-full"
         >
           Contact
